@@ -18,7 +18,12 @@ function getAllbook() {
 function createBook($value) {
     $title = $value['title'];
     $price = $value['price'];
-    return database()->query("INSERT INTO books(title, price) VALUES ('$title', '$price')");
+    $author = $value['authorname'];
+    $image = $value['image'];
+    $des = $value['description'];
+    $category = 1;
+    $user = 1;
+    return database()->query("INSERT INTO books(title, price, categoryid, userid, authorname, image, description) VALUES ('$title', '$price', '$category','$user', '$author', '$image', '$des')");
 
 }
 
@@ -31,7 +36,7 @@ function createBook($value) {
 
 //Book
 function deleteBook($id) {
-    return database()->query("DELETE * FROM books WHERE bookid = $id");
+    return database()->query("DELETE FROM books WHERE bookid = $id");
 
 }
 
@@ -41,21 +46,21 @@ function deleteBook($id) {
 
 // }
 
-// //Book
-// function getBookById($id) {
-//     return database()->query("SELECT * FROM book WHERE book_id = $id");
+//Book
+function getBookById($id) {
+    return database()->query("SELECT * FROM books WHERE book_id = $id");
     
 
 
-// }
+}
 
-// //SUB
-// function getSubjectById($id) {
-//     return database()->query("SELECT * FROM programming WHERE pro_id = $id");
+//SUB
+function getSubjectById($id) {
+    return database()->query("SELECT * FROM programming WHERE pro_id = $id");
     
 
 
-// }
+}
 
 // //Book
 // function updateBook($value) {

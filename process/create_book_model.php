@@ -34,6 +34,13 @@
         }else {
             echo "Cannot upload this types";
         }
+
+        $data = $_POST;
+        $data['image'] = $fileNameNew;
+        $isCreate = createBook($data);
+        if($isCreate){
+            header('location: ../index.php?page=khmerbook');
+        }
     }
     
 
