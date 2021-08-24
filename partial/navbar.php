@@ -5,24 +5,25 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-        <a class="navbar-brand" href="#">🍧💛β𝐎𝐎𝕜Ｔ๏𝔯𝐞♞👮 </a>
+        <a class="navbar-brand" href="#">β𝐎𝐎𝕜Ｔ๏𝔯𝐞♞👮 </a>
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0 ml-5">
-            <li class="nav-item nav-hover">
-              <a class="nav-link text-white" href="?page=home">HOME♛ <span class="sr-only"></span></a>
+            <li class="nav-item">
+              <a class="nav-link text-white​​​ font-weight-bold btn-outline-danger" href="?page=home">HOME♛ <span class="sr-only"></span></a>
             </li>
             <li class="nav-item ml-5">
-              <a class="nav-link text-white" href="?page=khmerbook">🎀KHMER BOOK🎁</a>
+              <a class="nav-link text-white font-weight-bold btn-outline-danger" href="?page=khmerbook">KHMER BOOK🎁</a>
             </li>
             <li class="nav-item ml-5">
-            <a class="nav-link text-white" href="?page=englishbook">🎀ENGLISH BOOK🎁</a>
-            </li>
-            <li class="nav-item ml-5">
-            <a class="nav-link text-white" href="?page=post">P🅾ST🎀</a>
+            <a class="nav-link text-white font-weight-bold btn-outline-danger" href="?page=englishbook">ENGLISH BOOK🎁</a>
             </li>
             
         </ul>
+        
         <form class="form-inline my-2 my-lg-0">
-          <button class="btn btn-outline-warning my-2 my-sm-0" type="submit">Login</button>
+          <a class="btn btn-outline-warning my-2 my-sm-0" href="?page=login">Login</a>
+          <div class="d-flex justify-content-end p-4">
+            <a href="process/create_book_html.php" class="btn btn-primary">Add Book+</a>
+          </div>
         </form>
     </div>
   </nav>

@@ -1,34 +1,39 @@
 <?php 
 include_once('partial/header.php');
-include_once('partial/navbar.php'); 
-?>  
-        <div class="container p-4">
 
-            <?php
-                require_once("inc/database.php");
-                $id = $_GET['id'];
-                echo $id;
+?>
+<?php 
+    require_once('inc/database.php');
+    $id = $_GET['id'];
+    $update = getBookById($id);
+    foreach($update as $book):;
 
-                $data = getBookById($id);
-                foreach($data as $book):
+?>
 
-            ?>
-            
-                <form action="update_model.php" method="post">
-                <input type="hidden" name="id" value="<?= $data['book_id']; ?>">
-                    <div class="form-group">
-                        <input type="text" class="form-control" value="<?= $data['title']; ?>" name="title">
-                    </div>
-                    <div class="form-group">
-                        <input type="number" class="form-control" value="<?= $data['price']; ?>" name="price">
-                    </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control" value="<?= $data['description']; ?>" name="description">
-                    </div>
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-primary btn-block" name="submit">Post</button>
-                    </div>
-                </form>
-
-                <?php endforeach; ?>
+<div class="container p-4">
+    <form action="update_model.php" method="post">
+    <input type="hidden" name="id" value="<?=$book['bookid'] ?>">
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Book title" name="title" value="<?=$book['title'] ?>">
         </div>
+        <div class="form-group">
+            <input type="number" class="form-control" placeholder="Book price" name="price" value="<?=$book['price'] ?>">
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Description" name="description" value="<?=$book['description'] ?>">
+        </div>
+        <select name="category" required class="mb-3">
+            <option value="1">Khmer Book</option>
+            <option value="2">English book</option>
+        </select>
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="authorname" name="authorname" value="<?=$book['authorname'] ?>">
+        </div>
+            <button type="submit" class="btn btn-primary btn-block" name="submit">Post</button>
+        </div>
+        
+    </form>
+</div>
+<?php endforeach; ?>
+
+<?php include_once('partial/footer.php'); ?>

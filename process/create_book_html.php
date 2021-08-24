@@ -22,11 +22,8 @@
                 <input type="file" class="form-control" name="file">
             </div>
             <select class="custom-select" name="type" required style="margin-bottom: 10px;">
-                    <option value="">Type Book</option>
                     <option value="1">Khmer Book</option>
                     <option value="2">English book</option>
-                    <option value="3">Chinese book</option>
-                    <option value="3">PHP bookk</option>
                 </select>
             <div class="form-group">
                 <button type="submit" class="btn btn-primary btn-block" name="submit">Post</button>

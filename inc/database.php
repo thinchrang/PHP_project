@@ -7,12 +7,16 @@ function database(){
 }
 
 
-//Book
-function getAllbook() {
-    return database()->query("SELECT * FROM books ORDER BY bookid DESC");
+//KhmerBook
+function getKhbook() {
+    return database()->query("SELECT * FROM books WHERE categoryid = 1 ORDER BY bookid DESC");
 
 }
 
+function getEngbook() {
+    return database()->query("SELECT * FROM books WHERE categoryid = 2 ORDER BY bookid DESC");
+
+}
 
 //Book
 function createBook($value) {
@@ -21,62 +25,50 @@ function createBook($value) {
     $author = $value['authorname'];
     $image = $value['image'];
     $des = $value['description'];
-    $category = 1;
+    $category = $value['type'];
     $user = 1;
     return database()->query("INSERT INTO books(title, price, categoryid, userid, authorname, image, description) VALUES ('$title', '$price', '$category','$user', '$author', '$image', '$des')");
 
 }
 
-// //SUB
-// function createSub($value) {
-//     $name = $value['name'];
-//     return database()->query("INSERT INTO programming(name) VALUES ('$name')");
 
-// }
 
-//Book
+//deleteBook
 function deleteBook($id) {
     return database()->query("DELETE FROM books WHERE bookid = $id");
 
 }
 
-// //SUB
-// function deleteSub($id) {
-//     return database()->query("DELETE FROM programming WHERE pro_id = $id");
 
-// }
 
-//Book
+//getBook
 function getBookById($id) {
-    return database()->query("SELECT * FROM books WHERE book_id = $id");
+    return database()->query("SELECT * FROM books WHERE bookid = $id");
     
 
 
 }
 
-//SUB
-function getSubjectById($id) {
-    return database()->query("SELECT * FROM programming WHERE pro_id = $id");
+
+
+// //updatBook
+function updateBook($value) {
+    $title = $value['title'];
+    $price = $value['price'];
+    $author = $value['authorname'];
+    $des = $value['description'];
+    $category = $value['category'];
+    $id = $value['id'];
     
-
-
+    return database()->query("UPDATE books SET title = '$title', price = '$price', categoryid='$category', authorname= '$author', description= '$des' WHERE bookid = $id");
 }
 
-// //Book
-// function updateBook($value) {
-//     $title = $value['title'];
-//     $price = $value['price'];
-//     $id = $value['id'];
-//     return database()->query("UPDATE book SET title = '$title', price = '$price' WHERE book_id = $id");
-//   }
-
-// //SUB
-// function updateSubject($value) {
-//     $name = $value['name'];
-//     $id = $value['id'];
-//     return database()->query("UPDATE programming SET name = '$name' WHERE pro_id = $id");
-//   }
+function research($value){
+    $title = $value['search'];    
+    return database()->query("SELECT * FROM books WHERE title LIKE '%$title%'");
+        
+    
+}
 
 
-// 
 ?>

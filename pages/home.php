@@ -44,3 +44,5 @@
     </div>
   </div>
 </div>
+
+<?php include_once('partial/foot.php'); ?>

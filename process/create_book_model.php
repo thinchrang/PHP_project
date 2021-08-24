@@ -37,9 +37,11 @@
 
         $data = $_POST;
         $data['image'] = $fileNameNew;
-        $isCreate = createBook($data);
-        if($isCreate){
+        $isCreated = createBook($data);
+        if($isCreated and $_POST['type'] == 1){
             header('location: ../index.php?page=khmerbook');
+        }elseif ($isCreated and $_POST['type'] == 2) {
+            header('location: ../index.php?page=englishbook');
         }
     }
     
